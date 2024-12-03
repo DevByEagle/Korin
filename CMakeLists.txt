@@ -5,6 +5,8 @@ project(Bolt VERSION 1.0.0 LANGUAGES C)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 file(GLOB SOURCES "src/*.c")
+file(GLOB HEADERS "src/*.h")
+
 
 # Include directory for modular CMake scripts
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
@@ -16,7 +18,6 @@ include(PackConfigurations)   # Package configurations
 include(InstallConfigurations) # Installation configurations
 
 # Add executable target for the project
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
 # Enable testing for the project
